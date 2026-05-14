@@ -126,19 +126,12 @@ docker compose exec db psql -U hitalent -d hitalent -c "\dt"
 Create a new migration:
 
 ```bash
-alembic revision --autogenerate -m "next change"
+docker compose exec web alembic revision --autogenerate -m "next change"
 ```
 
 Apply migrations:
 
 ```bash
-alembic upgrade head
-```
-
-Run the same commands inside Docker:
-
-```bash
-docker compose exec web alembic revision --autogenerate -m "next change"
 docker compose exec web alembic upgrade head
 ```
 
